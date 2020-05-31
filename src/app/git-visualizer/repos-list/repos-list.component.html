@@ -1,0 +1,27 @@
+<div class="container mt-5 col-md-5 mx-auto">
+    <h4>Select Repository</h4>
+    <form [formGroup]="userForm" class="mt-3">
+        <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fab fa-github"></i></span>
+            </div>
+            <input (focusout)="getAllRepos()" type="text"
+            class="form-control" placeholder="GitHub Username"
+            formControlName="username">
+        </div>
+        <p class="text-danger" 
+        [style.opacity]="userForm.get('username').invalid && userForm.get('username').touched ? 1 : 0"
+        >Enter Valid Github User
+        </p>
+        <div class="input-group">
+            <select formControlName="repository" class="custom-select" id="repository">
+                <option value="null" disabled [selected]="true" >Select Repository</option>
+                <option *ngFor="let repo of repositories" [value]="repo?.name">
+                    {{ repo?.name }}
+                </option>
+            </select>
+        </div>
+        <button class="btn btn-secondary btn-large mt-4"
+        [disabled]="userForm.invalid" (click)="getRepoCommits()">Select</button>
+    </form>
+</div>

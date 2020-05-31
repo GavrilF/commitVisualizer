@@ -3,7 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', loadChildren: () => import('./git-visualizer/git-visualizer.module').then(m => m.GitVisualizerModule) },
+  { path: '', pathMatch: 'full', redirectTo: 'gitApi'},
+  { path: 'gitApi', loadChildren: () => import('./git-visualizer/git-visualizer.module').then(m => m.GitVisualizerModule) },
 ];
 
 @NgModule({

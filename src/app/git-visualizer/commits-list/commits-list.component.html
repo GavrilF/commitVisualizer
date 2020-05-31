@@ -4,7 +4,7 @@
         <li  *ngFor="let commit of commits" class="commit d-flex justify-content-between p-3 bg-white mb-1">
             <div class="commit-info d-flex align-items-baseline">
                 <div class="image-holder">
-                    <img [src]="commit.author ? commit.author.avatar_url : noAuthorPlaceholder" class="profile-picture" alt="Profile picture">
+                    <img [src]="commit.author ? commit.author.avatar_url : noAuthorImagePlaceholder" class="profile-picture" alt="Profile picture">
                 </div>
                 <i class="mx-2 fas fa-caret-down"></i>
                 <div>
